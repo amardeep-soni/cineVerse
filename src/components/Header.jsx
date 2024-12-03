@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <div className="h-screen sticky left-0 p-5">
+        <div className="h-screen sticky left-0 w-[110px] p-5 top-0 bottom-0">
             <div className="bg-slate-800 h-full rounded-lg p-5">
                 <div className="text-center text-4xl pb-8">
                     <i className="text-red-400 fa-solid fa-clapperboard"></i>
