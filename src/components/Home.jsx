@@ -1,3 +1,13 @@
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// import required modules
+import { Pagination } from 'swiper/modules';
+
 export const Home = () => {
     return (
         <div className="min-h-screen px-3 pt-9 text-white homeCont">
@@ -8,10 +18,32 @@ export const Home = () => {
 
             <div>
                 <h1 className="text-3xl py-8">Trending</h1>
-                <div>
-                    <div className="grid grid-cols-[repeat(auto-fit,_minmax(300px,_1fr))] gap-4">
+                <div className='trendingCardCont'>
+                    <Swiper
+                        slidesPerView={1}
+                        spaceBetween={30}
+                        pagination={{
+                            clickable: true,
+                        }}
+                        modules={[Pagination]}
+                        className="mySwiper"
+                        breakpoints={{
+                            // when window width is >= 640px
+                            640: {
+                                slidesPerView: 1,
+                            },
+                            // when window width is >= 768px
+                            768: {
+                                slidesPerView: 2,
+                            },
+                            // when window width is >= 1024px
+                            1100: {
+                                slidesPerView: 3,
+                            },
+                        }}
+                    >
                         {[0, 1, 2, 3].map((i) => (
-                            <div key={i} className="rounded-lg overflow-hidden relative w-full h-[200px]">
+                            <SwiperSlide key={i} className="rounded-lg overflow-hidden relative">
                                 <img src="https://via.placeholder.com/400X200/777777" alt="Movie Poster" className="w-full h-full object-cover" />
                                 <div className="absolute bottom-8 left-8">
                                     <p className="flex items-center text-ms gap-2">
@@ -26,9 +58,9 @@ export const Home = () => {
                                 <div className="bg-slate-600 absolute top-4 right-4 w-9 h-9 rounded-full flex justify-center items-center text-sm">
                                     <i className="fa-regular fa-bookmark"></i>
                                 </div>
-                            </div>
+                            </SwiperSlide>
                         ))}
-                    </div>
+                    </Swiper>
                 </div>
             </div>
 
