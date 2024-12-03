@@ -3,11 +3,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 
 // import required modules
-import { Pagination } from 'swiper/modules';
-
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
 export const Home = () => {
     return (
         <div className="min-h-screen px-3 pt-9 text-white homeCont">
@@ -20,20 +21,23 @@ export const Home = () => {
                 <h1 className="text-3xl py-8">Trending</h1>
                 <div className='trendingCardCont'>
                     <Swiper
-                        slidesPerView={1}
-                        spaceBetween={30}
-                        pagination={{
-                            clickable: true,
+                        effect={'coverflow'}
+                        grabCursor={true}
+                        centeredSlides={true}
+                        coverflowEffect={{
+                            rotate: 50,
+                            stretch: 0,
+                            depth: 100,
+                            modifier: 1,
+                            slideShadows: true,
                         }}
-                        modules={[Pagination]}
+                        pagination={false}
+                        navigation={true}
+                        modules={[EffectCoverflow, Pagination, Navigation]}
                         className="mySwiper"
                         breakpoints={{
-                            // when window width is >= 640px
-                            640: {
-                                slidesPerView: 1,
-                            },
                             // when window width is >= 768px
-                            768: {
+                            700: {
                                 slidesPerView: 2,
                             },
                             // when window width is >= 1024px
@@ -90,6 +94,6 @@ export const Home = () => {
                     ))}
                 </div>
             </div>
-        </div>
+        </div >
     );
 }
