@@ -8,7 +8,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 // import required modules
-import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { EffectCoverflow, Pagination, Navigation, Mousewheel } from 'swiper/modules';
 export const Home = () => {
     return (
         <div className="min-h-screen px-3 pt-9 text-white homeCont">
@@ -24,6 +24,7 @@ export const Home = () => {
                         effect={'coverflow'}
                         grabCursor={true}
                         centeredSlides={true}
+                        mousewheel={true}
                         coverflowEffect={{
                             rotate: 50,
                             stretch: 0,
@@ -33,7 +34,7 @@ export const Home = () => {
                         }}
                         pagination={false}
                         navigation={true}
-                        modules={[EffectCoverflow, Pagination, Navigation]}
+                        modules={[EffectCoverflow, Pagination, Navigation, Mousewheel]}
                         className="mySwiper"
                         breakpoints={{
                             // when window width is >= 768px

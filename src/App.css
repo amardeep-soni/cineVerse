@@ -1,5 +1,5 @@
 .homeCont {
-  width: calc(100vw - 110px);
+  width: 100%;
 }
 
 .scrollbar-hide::-webkit-scrollbar {
@@ -10,9 +10,7 @@
   -ms-overflow-style: none; /* For IE and Edge */
   scrollbar-width: none; /* For Firefox */
 }
-.trendingCardCont {
-  width: calc(100vw - 151px);
-}
+
 .mySwiper {
   height: 200px;
 }
@@ -30,4 +28,14 @@
 .swiper-button-prev:after,
 .swiper-button-next:after {
   font-size: initial !important;
+}
+
+@media (min-width: 768px) {
+  .homeCont {
+    width: calc(100vw - 110px);
+  }
+
+  .trendingCardCont {
+    width: calc(100vw - 151px);
+  }
 }
